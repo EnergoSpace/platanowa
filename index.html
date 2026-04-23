@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dom – Stare Bielice</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #f5f5f3; color: #1a1a18; padding: 2rem 1rem; }
+  .listing { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 2rem; border: 0.5px solid #e0ddd6; }
+  .badge { display: inline-block; font-size: 12px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+  .badge-new { background: #E1F5EE; color: #0F6E56; }
+  .badge-raw { background: #FAEEDA; color: #854F0B; }
+  .price-bar { background: #f5f5f3; border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; align-items: baseline; justify-content: space-between; margin: 1.25rem 0; flex-wrap: wrap; gap: 8px; }
+  .price { font-size: 32px; font-weight: 500; }
+  .price-meta { font-size: 14px; color: #888780; }
+  .section { margin: 1.5rem 0; }
+  .section-title { font-size: 13px; font-weight: 500; color: #888780; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .params { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .param-card { background: #f5f5f3; border-radius: 10px; padding: 12px 14px; }
+  .param-label { font-size: 12px; color: #888780; margin-bottom: 3px; }
+  .param-value { font-size: 15px; font-weight: 500; }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag { font-size: 13px; background: #f5f5f3; border: 0.5px solid #e0ddd6; border-radius: 20px; padding: 4px 12px; color: #5f5e5a; }
+  .divider { border: none; border-top: 0.5px solid #e0ddd6; margin: 1.25rem 0; }
+  .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  @media (max-width: 480px) { .feature-list { grid-template-columns: 1fr; } }
+  .feature-item { font-size: 14px; padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: #1D9E75; margin-top: 7px; flex-shrink: 0; }
+  .media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .media-item { background: #f5f5f3; border-radius: 10px; padding: 12px 14px; }
+  .media-label { font-size: 12px; color: #888780; margin-bottom: 3px; }
+  .media-val { font-size: 14px; font-weight: 500; }
+  .highlight-box { background: #E1F5EE; border-radius: 10px; padding: 14px 16px; border: 0.5px solid #9FE1CB; }
+  .highlight-text { font-size: 14px; color: #085041; line-height: 1.6; }
+  .loc-row { display: flex; flex-direction: column; gap: 6px; }
+  .loc-item { font-size: 14px; display: flex; gap: 8px; align-items: flex-start; }
+  .loc-icon { color: #888780; flex-shrink: 0; width: 16px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="listing">
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+    <span class="badge badge-new">Na sprzedaż</span>
+    <span class="badge badge-raw">Stan surowy otwarty</span>
+  </div>
+
+  <h1 style="font-size:22px;font-weight:500;margin:0 0 4px;">Dom jednorodzinny wolnostojący – Stare Bielice</h1>
+  <p style="font-size:15px;color:#888780;margin:0 0 6px;">ul. Platanowa, Stare Bielice · 7 km od centrum Koszalina</p>
+
+  <div class="price-bar">
+    <div>
+      <div class="price">600 000 zł</div>
+      <div class="price-meta">~6 452 zł/m²</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:14px;color:#888780;">Działka nr 101/22</div>
+      <div style="font-size:14px;color:#888780;">Budowa od 2025 r.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Parametry nieruchomości</div>
+    <div class="params">
+      <div class="param-card"><div class="param-label">Powierzchnia domu</div><div class="param-value">93 m²</div></div>
+      <div class="param-card"><div class="param-label">Działka</div><div class="param-value">945 m²</div></div>
+      <div class="param-card"><div class="param-label">Liczba pokoi</div><div class="param-value">3 sypialnie</div></div>
+      <div class="param-card"><div class="param-label">Kondygnacje</div><div class="param-value">Parter</div></div>
+      <div class="param-card"><div class="param-label">Typ zabudowy</div><div class="param-value">Wolnostojący</div></div>
+      <div class="param-card"><div class="param-label">Stan</div><div class="param-value">Surowy otwarty</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="highlight-box">
+      <div class="highlight-text">Nowoczesna parterowa bryła w stylu stodoły — projekt <strong style="font-weight:500;">"Dom w oliwnikach 2 (E) OZE"</strong> (lustrzane odbicie). Duże przeszklenia, funkcjonalny układ, gotowy do wykończenia według własnej wizji. Ogród od południa z idealną ekspozycją na słońce.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">Układ i wnętrze</div>
+    <div class="feature-list">
+      <div class="feature-item"><div class="dot"></div>Przestronny salon z oknami na zachód</div>
+      <div class="feature-item"><div class="dot"></div>Otwarta kuchnia ze wspólną strefą dzienną</div>
+      <div class="feature-item"><div class="dot"></div>3 sypialnie z miejscem na garderobę/szafę wnękową</div>
+      <div class="feature-item"><div class="dot"></div>2 sypialnie z wyjściem na taras i ogród</div>
+      <div class="feature-item"><div class="dot"></div>Gabinet (możliwość adaptacji)</div>
+      <div class="feature-item"><div class="dot"></div>Pomieszczenie gospodarcze (pralnia / spiżarnia)</div>
+      <div class="feature-item"><div class="dot"></div>Duże przeszklenia – dużo naturalnego światła</div>
+      <div class="feature-item"><div class="dot"></div>Taras z wyjściem na ogród</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">Standard wykonania</div>
+    <div class="feature-list">
+      <div class="feature-item"><div class="dot"></div>Ściany suporekt – dobra izolacja termiczna</div>
+      <div class="feature-item"><div class="dot"></div>Blacha dachowa w arkuszach (nowoczesna forma)</div>
+      <div class="feature-item"><div class="dot"></div>Ocieplenie energooszczędne</div>
+      <div class="feature-item"><div class="dot"></div>Stolarka okienna – pakiet trzyszybowy</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">Media i infrastruktura</div>
+    <div class="media-row">
+      <div class="media-item"><div class="media-label">Prąd</div><div class="media-val">Doprowadzony</div></div>
+      <div class="media-item"><div class="media-label">Woda</div><div class="media-val">Własna studnia</div></div>
+      <div class="media-item"><div class="media-label">Kanalizacja</div><div class="media-val">Zbiornik bezodpływowy (możliwość)</div></div>
+      <div class="media-item"><div class="media-label">Droga dojazdowa</div><div class="media-val">Utwardzona (szutrowa), dostęp do drogi publicznej</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">Lokalizacja i okolica</div>
+    <div class="loc-row">
+      <div class="loc-item"><span class="loc-icon">→</span>Centrum Koszalina: ~7 km / ok. 10 minut jazdy</div>
+      <div class="loc-item"><span class="loc-icon">→</span>Węzły S6 i S11: ok. 20 minut</div>
+      <div class="loc-item"><span class="loc-icon">→</span>Sklep, szkoła, przedszkole, żłobek, kościół: 2 km</div>
+      <div class="loc-item"><span class="loc-icon">→</span>Sklep Dino: 3 km</div>
+      <div class="loc-item"><span class="loc-icon">→</span>Las w odległości 50 m od domu</div>
+      <div class="loc-item"><span class="loc-icon">→</span>Jeziora Tatowskie i Parnowskie w pobliżu</div>
+      <div class="loc-item"><span class="loc-icon">→</span>Paczkomat InPost i stacja paliw w okolicy</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <div class="section-title">Atuty okolicy</div>
+    <div class="tags">
+      <span class="tag">Spokojna ulica bez ruchu</span>
+      <span class="tag">Las 50 m</span>
+      <span class="tag">Widok na pola i zieleń</span>
+      <span class="tag">Cisza i prywatność</span>
+      <span class="tag">Ogród od południa</span>
+      <span class="tag">Blisko jezior</span>
+      <span class="tag">Luźna zabudowa</span>
+      <span class="tag">Szybki dojazd do Koszalina</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
