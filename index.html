@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -241,6 +241,103 @@
     color: var(--text-secondary);
   }
 
+  /* light mode */
+  [data-theme="light"] {
+    --bg-primary:    #fafaf8;
+    --bg-secondary:  #f0efeb;
+    --bg-tertiary:   #e5e3dc;
+    --text-primary:  #1a1a18;
+    --text-secondary:#6b6860;
+    --border:        rgba(0,0,0,0.08);
+    --border-md:     rgba(0,0,0,0.15);
+    --teal-fill:     #d6f5ec;
+    --teal-stroke:   #1a9e72;
+    --teal-text:     #0a5c42;
+    --amber-fill:    #fef0d6;
+    --amber-stroke:  #d4820a;
+    --amber-text:    #7a4200;
+  }
+  [data-theme="light"] .gallery-slide img.technical { background: #eae7e0; }
+  [data-theme="light"] .tag { color: #3a3733; }
+  [data-theme="light"] .theme-btn {
+    background: #fff;
+    border-color: rgba(0,0,0,0.22);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    color: #1a1a18;
+  }
+
+  /* theme toggle button */
+  .theme-btn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 999;
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-md);
+    border-radius: 20px;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    transition: background 0.15s;
+  }
+  .theme-btn:hover { background: var(--bg-tertiary); }
+  .icon-sun, .icon-moon {
+    color: var(--text-primary);
+    font-variant-emoji: text;
+    font-size: 17px;
+    line-height: 1;
+  }
+  [data-theme="dark"]  .icon-sun  { display: block; }
+  [data-theme="dark"]  .icon-moon { display: none;  }
+  [data-theme="light"] .icon-sun  { display: none;  }
+  [data-theme="light"] .icon-moon { display: block; }
+
+  /* project card */
+  .project-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    border-left: 3px solid var(--teal-stroke);
+  }
+  .project-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal-text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .project-name-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .project-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .badge-mirror {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 0.5px solid var(--border-md);
+  }
+  .project-desc {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    border-top: 0.5px solid var(--border);
+    padding-top: 10px;
+  }
+
   /* divider */
   .divider {
     border: none;
@@ -250,6 +347,11 @@
 </style>
 </head>
 <body>
+<button class="theme-btn" id="themeBtn" aria-label="Przełącz motyw">
+  <span class="icon-sun">&#x2600;&#xFE0E;</span>
+  <span class="icon-moon">&#x263D;&#xFE0E;</span>
+</button>
+
 <div class="listing">
 
   <h1>Dom jednorodzinny parterowy</h1>
@@ -262,13 +364,13 @@
     <div class="gallery-track" id="galleryTrack">
 
       <div class="gallery-slide">
-        <img src="https://cdn1.archon.pl/images/products/m64826bff0e896/i/projekt-dom-w-oliwnikach-2-e-oze-8ab0387f7ef1a0acc88e65072d245a7f__44136.jpg" alt="Wizualizacja – widok od ogrodu i tarasu">
-        <div class="gallery-caption">Wizualizacja – widok od ogrodu i tarasu</div>
+        <img src="https://cdn1.archon.pl/images/products/m64826bff0e896/i/projekt-dom-w-oliwnikach-2-e-oze-bbaf7a09d6b0b3ad647c850c2dc68258__44137.jpg" alt="Wizualizacja – elewacja frontowa">
+        <div class="gallery-caption">Wizualizacja – elewacja frontowa</div>
       </div>
 
       <div class="gallery-slide">
-        <img src="https://cdn1.archon.pl/images/products/m64826bff0e896/i/projekt-dom-w-oliwnikach-2-e-oze-bbaf7a09d6b0b3ad647c850c2dc68258__44137.jpg" alt="Wizualizacja – elewacja frontowa">
-        <div class="gallery-caption">Wizualizacja – elewacja frontowa</div>
+        <img src="https://cdn1.archon.pl/images/products/m64826bff0e896/i/projekt-dom-w-oliwnikach-2-e-oze-8ab0387f7ef1a0acc88e65072d245a7f__44136.jpg" alt="Wizualizacja – widok od ogrodu i tarasu">
+        <div class="gallery-caption">Wizualizacja – widok od ogrodu i tarasu</div>
       </div>
 
       <div class="gallery-slide">
@@ -331,7 +433,7 @@
   </script>
   <div class="price-bar">
     <div>
-      <div class="price">530 000 zł</div>
+      <div class="price">550 000 zł</div>
       <div class="price-meta">5 914 zł/m²</div>
     </div>
     <div class="price-secondary">
@@ -354,12 +456,13 @@
   </div>
 
   <hr class="divider">
-  <h2 style="font-size:18px; font-weight:700; color:var(--text-primary); margin:0 0 4px;">Dom w Oliwnikach 2 (E) OZE</h2>
-  <p class="subtitle">lustrzane odbicie</p>
-  <div class="section" style="margin-top:0.5rem;">
-    <div class="highlight-box">
-      <div class="highlight-text">Projekt w stylu nowoczesnej stodoły. Funkcjonalny układ pomieszczeń. Dom gotowy do wykończenia według własnych potrzeb.</div>
+  <div class="project-card">
+    <div class="project-label">Projekt architektoniczny</div>
+    <div class="project-name-row">
+      <span class="project-name">Dom w Oliwnikach 2 (E) OZE</span>
+      <span class="badge badge-mirror">lustrzane odbicie</span>
     </div>
+    <p class="project-desc">Projekt w stylu nowoczesnej stodoły. Funkcjonalny układ pomieszczeń. Dom gotowy do wykończenia według własnych potrzeb.</p>
   </div>
 
   <hr class="divider">
@@ -460,6 +563,17 @@
 
 </div>
 <script>
+  (function() {
+    var html = document.documentElement;
+    var saved = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    document.getElementById('themeBtn').addEventListener('click', function() {
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  })();
+
   (function() {
     var priceEl = document.querySelector('.price');
     var metaEl  = document.querySelector('.price-meta');
