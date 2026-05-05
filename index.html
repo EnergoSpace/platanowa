@@ -83,6 +83,72 @@
   }
   .price { font-size: 32px; font-weight: 600; }
   .price-meta { font-size: 15px; font-weight: 600; color: var(--text-secondary); }
+  .price-secondary { text-align: right; }
+  @media (max-width: 600px) { .price-secondary { text-align: left; } }
+
+  /* gallery */
+  .gallery { position: relative; margin: 1rem 0 0; }
+  .gallery-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    border-radius: var(--radius-lg);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .gallery-track::-webkit-scrollbar { display: none; }
+  .gallery-slide { scroll-snap-align: start; flex: 0 0 100%; position: relative; }
+  .gallery-slide img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius-lg);
+  }
+  .gallery-slide img.technical {
+    object-fit: contain;
+    background: #1e1e1c;
+  }
+  .gallery-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 28px 14px 10px;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    pointer-events: none;
+  }
+  .gallery-counter {
+    position: absolute;
+    top: 10px; right: 12px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    pointer-events: none;
+  }
+  .gallery-btn {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 38px; height: 38px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    line-height: 1;
+  }
+  .gallery-btn:hover { background: rgba(0,0,0,0.7); }
+  .gallery-btn-prev { left: 10px; }
+  .gallery-btn-next { right: 10px; }
+  @media (max-width: 480px) { .gallery-btn { display: none; } }
 
   /* section */
   .section { margin: 1.5rem 0; }
@@ -186,24 +252,89 @@
 <body>
 <div class="listing">
 
-  <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+  <h1>Dom jednorodzinny parterowy</h1>
+  <p class="subtitle">Stare Bielice, ul. Platanowa · 5 km od Koszalina</p>
+  <div style="display:flex; gap:8px; flex-wrap:wrap; margin: 8px 0 0;">
     <span class="badge badge-new">Na sprzedaż</span>
     <span class="badge badge-raw">Stan surowy otwarty</span>
   </div>
+  <div class="gallery">
+    <div class="gallery-track" id="galleryTrack">
 
-  <h1>Dom jednorodzinny wolnostojący</h1>
-  <p class="subtitle">Stare Bielice, ul. Platanowa · 5 km od Koszalina</p>
-  <img 
-  src="https://cdn1.archon.pl/images/products/m64826bff0e896/i/projekt-dom-w-oliwnikach-2-e-oze-bbaf7a09d6b0b3ad647c850c2dc68258__44137.jpg"
-  alt="Dom w Oliwnikach 2 – widok zewnętrzny"
-  style="width:100%; border-radius:12px; display:block; margin: 1rem 0 0;"
->
+      <div class="gallery-slide">
+        <img src="https://cdn1.archon.pl/images/products/m64826bff0e896/i/projekt-dom-w-oliwnikach-2-e-oze-8ab0387f7ef1a0acc88e65072d245a7f__44136.jpg" alt="Wizualizacja – widok od ogrodu i tarasu">
+        <div class="gallery-caption">Wizualizacja – widok od ogrodu i tarasu</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img src="https://cdn1.archon.pl/images/products/m64826bff0e896/i/projekt-dom-w-oliwnikach-2-e-oze-bbaf7a09d6b0b3ad647c850c2dc68258__44137.jpg" alt="Wizualizacja – elewacja frontowa">
+        <div class="gallery-caption">Wizualizacja – elewacja frontowa</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img class="technical" src="https://assets.archon.pl/images/products/m64826bff0e896/projekt-dom-w-oliwnikach-2-e-oze-c4c80368917e04a2802920eafc389919__11815.gif" alt="Rzut parteru">
+        <div class="gallery-caption">Rzut parteru</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img class="technical" src="https://www.archon.pl/images/products/m64826bff0e896/projekt-dom-w-oliwnikach-2-e-oze-d29fa0c1196f17302a368befc99a277a__11255.jpg" alt="Zagospodarowanie działki">
+        <div class="gallery-caption">Zagospodarowanie działki</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img class="technical" src="https://www.archon.pl/images/products/m64826bff0e896/projekt-dom-w-oliwnikach-2-e-oze-fdfaa783c62d8e3442f8fb449c81ca34__11264.jpg" alt="Elewacja frontowa">
+        <div class="gallery-caption">Elewacja frontowa</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img class="technical" src="https://www.archon.pl/images/products/m64826bff0e896/projekt-dom-w-oliwnikach-2-e-oze-88297e7dc2a81e5380c114c8a5a3e0d2__11266.jpg" alt="Elewacja tylna">
+        <div class="gallery-caption">Elewacja tylna</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img class="technical" src="https://www.archon.pl/images/products/m64826bff0e896/projekt-dom-w-oliwnikach-2-e-oze-820080f7878ccf084330829f08bcb73c__11267.jpg" alt="Elewacja boczna lewa">
+        <div class="gallery-caption">Elewacja boczna lewa</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img class="technical" src="https://www.archon.pl/images/products/m64826bff0e896/projekt-dom-w-oliwnikach-2-e-oze-848a4f2474dccdc85127b7968dc2c90a__11265.jpg" alt="Elewacja boczna prawa">
+        <div class="gallery-caption">Elewacja boczna prawa</div>
+      </div>
+
+      <div class="gallery-slide">
+        <img class="technical" src="https://www.archon.pl/images/products/m64826bff0e896/projekt-dom-w-oliwnikach-2-e-oze-d3ed41fab5bfcf92633108f1a2baa0ae__11256.jpg" alt="Przekrój budynku">
+        <div class="gallery-caption">Przekrój budynku</div>
+      </div>
+
+    </div>
+    <button class="gallery-btn gallery-btn-prev" id="galleryPrev" aria-label="Poprzednie">&#8249;</button>
+    <button class="gallery-btn gallery-btn-next" id="galleryNext" aria-label="Następne">&#8250;</button>
+    <div class="gallery-counter" id="galleryCounter">1 / 9</div>
+  </div>
+  <script>
+    (function() {
+      var track = document.getElementById('galleryTrack');
+      var counter = document.getElementById('galleryCounter');
+      var total = track.querySelectorAll('.gallery-slide').length;
+      function update() {
+        var idx = Math.round(track.scrollLeft / track.offsetWidth) + 1;
+        counter.textContent = idx + ' / ' + total;
+      }
+      track.addEventListener('scroll', update, { passive: true });
+      document.getElementById('galleryPrev').addEventListener('click', function() {
+        track.scrollBy({ left: -track.offsetWidth, behavior: 'smooth' });
+      });
+      document.getElementById('galleryNext').addEventListener('click', function() {
+        track.scrollBy({ left: track.offsetWidth, behavior: 'smooth' });
+      });
+    })();
+  </script>
   <div class="price-bar">
     <div>
       <div class="price">600 000 zł</div>
       <div class="price-meta">6 452 zł/m²</div>
     </div>
-    <div style="text-align:right;">
+    <div class="price-secondary">
       <div style="font-size:15px; color:var(--text-secondary);">Działka nr 101/22</div>
       <div style="font-size:15px; color:var(--text-secondary);">Rok budowy: 2025</div>
     </div>
